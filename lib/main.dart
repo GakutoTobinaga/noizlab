@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'theme/app_theme.dart';
 import 'screens/home_screen.dart';
-import 'widgets/app_logo.dart';
+// import 'widgets/app_logo.dart';
+import 'widgets/custom_bottom_nav_bar.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -29,14 +31,26 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       theme: AppTheme.lightTheme, // ライトテーマ
       darkTheme: AppTheme.darkTheme, // ダークテーマ
-      themeMode: _themeMode,// 現在のテーマモード
+      themeMode: _themeMode, // 現在のテーマモード
       home: Scaffold(
-        appBar: AppBar(
-          title: const AppLogo(),
-        ),
-        body: HomeScreen(
-          isDarkMode: _themeMode == ThemeMode.dark,
-          onToggleTheme: _toggleTheme,
+        body: Stack(
+          children: [
+            // 背景グラデーション
+            Container(
+              decoration: AppTheme.getBackgroundGradient(_themeMode == ThemeMode.dark),
+            ),
+            Column(
+              children: [
+                Expanded(
+                  child: HomeScreen(
+                    isDarkMode: _themeMode == ThemeMode.dark,
+                    onToggleTheme: _toggleTheme,
+                  ),
+                ),
+                const CustomBottomNavBar(), // カスタムナビゲーションバー
+              ],
+            ),
+          ],
         ),
       ),
     );
