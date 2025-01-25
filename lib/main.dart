@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'widgets/gradient_background.dart'; // グラデーション背景ウィジェット
-import 'theme/app_theme.dart'; // テーマ設定
-
+import 'theme/app_theme.dart';
+import 'screens/home_screen.dart';
+import 'widgets/app_logo.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -14,10 +14,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // 初期状態はライトモード
+  // 初期状態はダークモード
   ThemeMode _themeMode = ThemeMode.light;
 
-  // テーマを切り替える関数
+  // モード切り替え関数
   void _toggleTheme() {
     setState(() {
       _themeMode = _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
@@ -29,10 +29,15 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       theme: AppTheme.lightTheme, // ライトテーマ
       darkTheme: AppTheme.darkTheme, // ダークテーマ
-      themeMode: _themeMode, // 現在のテーマモードを適用
-      home: GradientBackgroundScreen(
-        isDarkMode: _themeMode == ThemeMode.dark,
-        onToggleTheme: _toggleTheme, // ボタンでテーマを切り替え
+      themeMode: _themeMode,// 現在のテーマモード
+      home: Scaffold(
+        appBar: AppBar(
+          title: const AppLogo(),
+        ),
+        body: HomeScreen(
+          isDarkMode: _themeMode == ThemeMode.dark,
+          onToggleTheme: _toggleTheme,
+        ),
       ),
     );
   }
