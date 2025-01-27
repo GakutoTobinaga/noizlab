@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/gradient_background.dart';
-
+// import '../theme/app_colors.dart';
 class HomeScreen extends StatelessWidget {
   final bool isDarkMode;
   final VoidCallback onToggleTheme;
@@ -19,15 +19,15 @@ Widget build(BuildContext context) {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // 表示したい文字
-            Text(
-              '探す', // 表示する文字
-              style: TextStyle(
-                fontFamily: "MPlus1p",
-                fontSize: 34,
-                fontWeight: FontWeight.bold,
-                color: isDarkMode ? Colors.white : Colors.black, // テーマによる色の切り替え
-              ),
+            Row(
+              children: [
+                const Icon(Icons.troubleshoot), // Material Designのtroubleshootアイコン
+                const SizedBox(width: 8), // アイコンとテキストの間隔を調整
+                Text(
+                  '探す', // 表示する文字
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
+              ],
             ),
             const SizedBox(height: 20), // 間隔を空ける
             ActionChip(

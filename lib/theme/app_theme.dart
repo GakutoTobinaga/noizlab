@@ -7,14 +7,18 @@ class AppTheme {
     brightness: Brightness.light,
     scaffoldBackgroundColor: Colors.transparent, // 背景はグラデーションで設定
     textTheme: const TextTheme(
+      headlineLarge: TextStyle(
+        color: DarkColors.ultramarine,
+        fontSize: 34,
+        fontFamily: "NotoSansJP",
+        fontWeight: FontWeight.w900,
+      ),
       headlineSmall: TextStyle(
-        fontFamily: 'MPlus1p', // フォントファミリーを指定
         color: LightColors.royalBlue,
         fontSize: 24,
         fontWeight: FontWeight.bold,
       ),
       bodyLarge: TextStyle(
-        fontFamily: 'MPlus1p', // フォントファミリーを指定
         color: LightColors.portage,
         fontSize: 18,
         fontWeight: FontWeight.w600,
@@ -27,14 +31,18 @@ class AppTheme {
     brightness: Brightness.dark,
     scaffoldBackgroundColor: Colors.transparent, // 背景はグラデーションで設定
     textTheme: const TextTheme(
+        headlineLarge: TextStyle(
+        color: LightColors.malibu,
+        fontSize: 34,
+        fontFamily: "NotoSansJP",
+        fontWeight: FontWeight.w900,
+      ),
       headlineSmall: TextStyle(
-        fontFamily: 'MPlus1p', // フォントファミリーを指定
         color: DarkColors.lavender,
         fontSize: 24,
         fontWeight: FontWeight.bold,
       ),
       bodyLarge: TextStyle(
-        fontFamily: 'MPlus1p', // フォントファミリーを指定
         color: DarkColors.persianBlue,
         fontSize: 18,
         fontWeight: FontWeight.w600,
