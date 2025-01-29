@@ -33,24 +33,26 @@ class _MyAppState extends State<MyApp> {
       darkTheme: AppTheme.darkTheme, // ダークテーマ
       themeMode: _themeMode, // 現在のテーマモード
       home: Scaffold(
-        body: Stack(
-          children: [
-            // 背景グラデーション
-            Container(
-              decoration: AppTheme.getBackgroundGradient(_themeMode == ThemeMode.dark),
-            ),
-            Column(
-              children: [
-                Expanded(
-                  child: HomeScreen(
-                    isDarkMode: _themeMode == ThemeMode.dark,
-                    onToggleTheme: _toggleTheme,
+        body: SafeArea(
+          child: Stack(
+            children: [
+              // 背景グラデーション
+              Container(
+                decoration: AppTheme.getBackgroundGradient(_themeMode == ThemeMode.dark),
+              ),
+              Column(
+                children: [
+                  Expanded(
+                    child: HomeScreen(
+                      isDarkMode: _themeMode == ThemeMode.dark,
+                      onToggleTheme: _toggleTheme,
+                    ),
                   ),
-                ),
-                const CustomBottomNavBar(), // カスタムナビゲーションバー
-              ],
-            ),
-          ],
+                  const CustomBottomNavBar(), // カスタムナビゲーションバー
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
