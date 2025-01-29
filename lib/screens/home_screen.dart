@@ -21,10 +21,8 @@ Widget build(BuildContext context) {
           children: [
             Row(
               children: [
-                const Icon(Icons.troubleshoot), // Material Designのtroubleshootアイコン
-                const SizedBox(width: 8), // アイコンとテキストの間隔を調整
                 Text(
-                  '探す', // 表示する文字
+                  '探す🔍', // 表示する文字
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
               ],
