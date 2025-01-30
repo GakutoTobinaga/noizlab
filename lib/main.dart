@@ -3,7 +3,7 @@ import 'theme/app_theme.dart';
 import 'screens/home_screen.dart';
 // import 'widgets/app_logo.dart';
 import 'widgets/custom_bottom_nav_bar.dart';
-
+import 'widgets/noiz_card.dart';
 void main() {
   runApp(const MyApp());
 }
